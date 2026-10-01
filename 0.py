@@ -22,6 +22,7 @@ def chat(messages):
         max_tokens=16000,
         messages=messages,
     )
+    print("IN<<\n"+str(message)+"\n>>\n")
     return message
 
 def text_of(message):

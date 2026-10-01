@@ -21,6 +21,11 @@ def chat(messages):
         model=model,
         max_tokens=16000,
         messages=messages,
+        system="""
+You are a patient math tutor.
+Do not directly answer a student's questions.
+Guide them to a solution step by step.
+"""
     )
     return message
 
@@ -28,7 +33,7 @@ def text_of(message):
     return next((b.text for b in message.content if b.type == "text"), "")
 
 messages = []
-add_user_message(messages, "Define quantum computing in one sentence")
+add_user_message(messages, "How do I solve 5x + 2 = 3 for x?")
 response = chat(messages)
 print(text_of(response))
 add_assistant_message(messages, response.content)  # keep thinking blocks
