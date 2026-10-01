@@ -36,8 +36,3 @@ messages = []
 add_user_message(messages, "How do I solve 5x + 2 = 3 for x?")
 response = chat(messages)
 print(text_of(response))
-add_assistant_message(messages, response.content)  # keep thinking blocks
-add_user_message(messages, "Write another sentence")
-final = chat(messages)
-
-print(text_of(final))
