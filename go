@@ -1,1 +1,1 @@
-python 0.py
+python $1.py
