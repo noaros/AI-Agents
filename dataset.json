@@ -1,11 +1,14 @@
 [
   {
-    "task": "Write a Python function that takes an S3 bucket name and a prefix, and uses boto3 to return a list of all object keys under that prefix, handling pagination correctly."
+    "task": "Write a Python function named `get_untagged_ec2_instance_ids` that takes a list of dictionaries, each shaped like an item from the `Instances` list in a boto3 `describe_instances` response (with keys such as `InstanceId` and an optional `Tags` list of `{'Key': ..., 'Value': ...}` dicts), and a required tag key string. It should return a sorted list of InstanceId values for instances that do not have the required tag key. Handle instances where the `Tags` key is missing entirely.",
+    "format": "python"
   },
   {
-    "task": "Write a JSON IAM policy document that grants read-only access (s3:GetObject and s3:ListBucket) to a bucket named 'my-app-logs' and all objects within it."
+    "task": "Write a JSON object representing an AWS IAM policy document that grants read-only access (s3:GetObject and s3:ListBucket) to a bucket named 'analytics-data-prod' and all objects within it. Use policy version '2012-10-17' and make sure the ListBucket permission applies to the bucket ARN while the GetObject permission applies to the objects ARN.",
+    "format": "json"
   },
   {
-    "task": "Write a single regular expression that matches a valid AWS EC2 instance ID, which is 'i-' followed by either 8 or 17 lowercase hexadecimal characters, and that matches the entire string only."
+    "task": "Write a regular expression that matches a valid Amazon S3 bucket ARN or object ARN in the standard 'aws' partition, such as 'arn:aws:s3:::my-bucket' or 'arn:aws:s3:::my-bucket/path/to/object.txt'. The bucket name must be 3-63 characters long, consisting of lowercase letters, numbers, hyphens, and periods, and must start and end with a letter or number. The regex should match the full string and optionally allow an object key path after the bucket name.",
+    "format": "regex"
   }
 ]
