@@ -8,15 +8,31 @@ model = "claude-sonnet-5-5"
 
 print("hi")
 
-message = client.messages.create(
-    model=model,
-    max_tokens=1000,
-    messages=[
-        {
-            "role": "user",
-            "content": "What is quantum computing? Answer in one sentence"
-        }
-    ]
-)
+def add_user_message(messages, text):
+    user_message = {"role": "user", "content": text}
+    messages.append(user_message)
 
-print(message.content[0].text)
+def add_assistant_message(messages, content):
+    assistant_message = {"role": "assistant", "content": content}
+    messages.append(assistant_message)
+
+def chat(messages):
+    message = client.messages.create(
+        model=model,
+        max_tokens=16000,
+        messages=messages,
+    )
+    return message
+
+def text_of(message):
+    return next((b.text for b in message.content if b.type == "text"), "")
+
+messages = []
+add_user_message(messages, "Define quantum computing in one sentence")
+response = chat(messages)
+print(text_of(response))
+add_assistant_message(messages, response.content)  # keep thinking blocks
+add_user_message(messages, "Write another sentence")
+final = chat(messages)
+
+print(text_of(final))
