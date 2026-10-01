@@ -1,0 +1,11 @@
+[
+  {
+    "task": "Write a Python function that takes an S3 bucket name and a prefix, and uses boto3 to return a list of all object keys under that prefix, handling pagination correctly."
+  },
+  {
+    "task": "Write a JSON IAM policy document that grants read-only access (s3:GetObject and s3:ListBucket) to a bucket named 'my-app-logs' and all objects within it."
+  },
+  {
+    "task": "Write a single regular expression that matches a valid AWS EC2 instance ID, which is 'i-' followed by either 8 or 17 lowercase hexadecimal characters, and that matches the entire string only."
+  }
+]
