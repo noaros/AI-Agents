@@ -140,7 +140,6 @@ def run_eval(dataset):
     return results
 
 def grade_by_model(test_case, output):
-    # Create evaluation prompt
     eval_prompt = f"""
     You are an expert code reviewer. Evaluate this AI-generated solution.
     
@@ -159,15 +158,9 @@ def grade_by_model(test_case, output):
         "properties": {
             "strengths": {
                 "type": "array",
-                # "items": {
-                #     "type": "object",
-                # },
             },
             "weaknesses": {
                 "type": "array",
-                # "items": {
-                #     "type": "object",
-                # },
             },
             "reasoning": {
                 "type": "string",
